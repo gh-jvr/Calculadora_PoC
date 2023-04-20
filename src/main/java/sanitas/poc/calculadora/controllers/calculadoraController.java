@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sanitas.poc.calculadora.dtos.OperacionOutputDto;
 import sanitas.poc.calculadora.services.CalculadoraService;
+import sanitas.poc.calculadora.utils.CalculadoraUtils;
 
 /**
  * Controlador principal de la API.
@@ -21,6 +22,12 @@ public class calculadoraController {
      */
     @Autowired
     private CalculadoraService calculadoraService;
+
+    /**
+     * Instancia de la clase de utilidades de la API.
+     */
+    @Autowired
+    private CalculadoraUtils utils;
 
     /**
      * Endpoint para la operación de sumar.
@@ -47,7 +54,7 @@ public class calculadoraController {
     public ResponseEntity<OperacionOutputDto> restar(@RequestParam String a,
                                                      @RequestParam String b) {
         log.debug("Se ha recibido una llamada al servicio /restar con los siguientes parámetros de entrada: [a:" + a +", b:" + b + "]");
-        return calculadoraService.sumar(a, "-"+b);
+        return calculadoraService.sumar(a, utils.invertNumber(b));
     }
 
 }
