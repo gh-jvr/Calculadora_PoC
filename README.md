@@ -32,7 +32,7 @@ Esto hará que se lance el tomcat embebido de la aplicación y despliegue la API
 
 
 El punto de acceso predeterminado es: 
-  ** http://localhost:8080/calculadora/ **
+  **http://localhost:8080/calculadora/**
 Esto nos redirigirá al Swagger de la API donde se definirá las 2 operaciones disponibles (e incluso nos permitirá lanzar peticiones desde la propia interfaz del Swagger).
 
 Las rutas de las operaciones son:
